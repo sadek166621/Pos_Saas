@@ -1,0 +1,450 @@
+/* ==============================================================================
+   SMARTPOS SAAS - HIGH CONTRAST PURE LIGHT THEME & SPACING ENGINE
+   Fixed Padding, Form Controls, Bengali Typography & Clean Alignment
+   ============================================================================== */
+
+:root,
+html,
+body,
+[data-bs-theme="light"],
+[data-bs-theme="dark"] {
+  color-scheme: light !important;
+  --bs-body-bg: #f8fafc !important;
+  --bs-body-color: #0f172a !important;
+  --bs-card-bg: #ffffff !important;
+  --bs-card-color: #0f172a !important;
+  --bs-border-color: #e2e8f0 !important;
+  --bs-tertiary-bg: #f1f5f9 !important;
+  --bs-secondary-color: #64748b !important;
+  --bs-heading-color: #0f172a !important;
+}
+
+body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+  font-family: 'Hind Siliguri', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  line-height: 1.6 !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Page Layout */
+.page-wrapper {
+  background-color: #f8fafc !important;
+}
+
+.page-content {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+  padding: 1.75rem 2rem !important;
+}
+
+@media (max-width: 768px) {
+  .page-content {
+    padding: 1.25rem 1rem !important;
+  }
+}
+
+/* Navbar */
+.navbar {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04) !important;
+  height: 64px;
+}
+
+.navbar .navbar-content {
+  color: #0f172a !important;
+}
+
+/* Headings & Text */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+}
+
+.text-dark {
+  color: #0f172a !important;
+}
+
+.text-muted, .text-secondary {
+  color: #64748b !important;
+}
+
+.text-body {
+  color: #0f172a !important;
+}
+
+/* Cards & Containers */
+.card {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02) !important;
+  transition: all 0.2s ease-in-out;
+}
+
+.card .card-body {
+  padding: 1.75rem !important;
+}
+
+@media (min-width: 992px) {
+  .card .card-body.p-4,
+  .card .card-body.p-md-5 {
+    padding: 2.25rem !important;
+  }
+}
+
+.stat-card {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04) !important;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08) !important;
+}
+
+/* Section Containers inside Cards */
+.bg-light,
+.bg-light-subtle {
+  background-color: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.border.rounded-3,
+.border.rounded-4 {
+  border-color: #e2e8f0 !important;
+  padding: 1.5rem !important;
+}
+
+/* Form Labels & Typography */
+.form-label {
+  color: #1e293b !important;
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  display: block !important;
+}
+
+.form-label.small {
+  font-size: 13.5px !important;
+}
+
+/* Form Controls & Selects */
+.form-control,
+.form-select {
+  min-height: 44px !important;
+  height: 44px !important;
+  padding: 8px 14px !important;
+  font-size: 14.5px !important;
+  line-height: 1.5 !important;
+  border-radius: 8px !important;
+  border: 1px solid #cbd5e1 !important;
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+textarea.form-control {
+  min-height: 84px !important;
+  height: auto !important;
+  padding: 10px 14px !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15) !important;
+  outline: none !important;
+}
+
+.form-control::placeholder {
+  color: #94a3b8 !important;
+  opacity: 1;
+}
+
+/* Small Form Controls */
+.form-control-sm,
+.form-select-sm {
+  min-height: 38px !important;
+  height: 38px !important;
+  padding: 6px 12px !important;
+  font-size: 13.5px !important;
+  border-radius: 6px !important;
+}
+
+.input-group-text {
+  background-color: #f1f5f9 !important;
+  color: #475569 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+/* Tables */
+.table-responsive {
+  background-color: #ffffff !important;
+  border-radius: 12px;
+  border: 1px solid #f1f5f9;
+}
+
+.table {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.table thead,
+.table thead th,
+.table-light,
+.table-light th,
+.table th {
+  background-color: #f8fafc !important;
+  color: #1e293b !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  border-bottom: 2px solid #e2e8f0 !important;
+  border-top: none !important;
+  padding: 14px 16px !important;
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+}
+
+.table tbody tr {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  transition: background-color 0.15s ease;
+}
+
+.table tbody tr:hover {
+  background-color: #f8fafc !important;
+}
+
+.table tbody td {
+  color: #1e293b !important;
+  padding: 14px 16px !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  font-size: 14px !important;
+  line-height: 1.5;
+}
+
+.table-sm th,
+.table-sm td {
+  padding: 10px 14px !important;
+  font-size: 13.5px !important;
+}
+
+/* Modals */
+.modal-content {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border: none !important;
+  border-radius: 18px !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.18) !important;
+}
+
+.modal-header {
+  border-bottom: 1px solid #f1f5f9 !important;
+  padding: 1.25rem 1.75rem !important;
+}
+
+.modal-body {
+  padding: 1.75rem !important;
+}
+
+.modal-footer {
+  border-top: 1px solid #f1f5f9 !important;
+  padding: 1.25rem 1.75rem !important;
+}
+
+/* Dropdown Menus */
+.dropdown-menu {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05) !important;
+  padding: 8px !important;
+}
+
+.dropdown-item {
+  color: #1e293b !important;
+  border-radius: 8px !important;
+  font-size: 13.5px !important;
+  padding: 8px 14px !important;
+  transition: background-color 0.12s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* Badges */
+.badge {
+  font-weight: 600 !important;
+  letter-spacing: 0.3px;
+  padding: 5px 10px !important;
+  border-radius: 6px;
+}
+
+.badge.bg-light,
+.badge.text-dark {
+  background-color: #f1f5f9 !important;
+  color: #334155 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+.badge.bg-success-subtle {
+  background-color: #dcfce7 !important;
+  color: #166534 !important;
+}
+
+.badge.bg-primary-subtle {
+  background-color: #dbeafe !important;
+  color: #1e40af !important;
+}
+
+.badge.bg-danger-subtle {
+  background-color: #fee2e2 !important;
+  color: #991b1b !important;
+}
+
+.badge.bg-warning-subtle {
+  background-color: #fef9c3 !important;
+  color: #854d0e !important;
+}
+
+.badge.bg-info-subtle {
+  background-color: #e0f2fe !important;
+  color: #075985 !important;
+}
+
+.list-group-item {
+  background-color: transparent !important;
+  color: #1e293b !important;
+  border-color: #f1f5f9 !important;
+  padding: 10px 14px !important;
+}
+
+/* Accordions */
+.accordion-button {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  font-weight: 600;
+  padding: 1rem 1.25rem !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #f8fafc !important;
+  color: #2563eb !important;
+  box-shadow: none !important;
+}
+
+.accordion-item {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  border-radius: 10px !important;
+  overflow: hidden;
+}
+
+.accordion-body {
+  padding: 1.25rem !important;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 8px !important;
+  padding: 8px 18px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  line-height: 1.5;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-sm,
+.btn-xs {
+  padding: 5px 12px !important;
+  font-size: 13px !important;
+  border-radius: 6px !important;
+}
+
+.btn-lg {
+  padding: 12px 26px !important;
+  font-size: 16px !important;
+  border-radius: 10px !important;
+}
+
+/* Grid & Spacing Enhancements */
+.grid-margin {
+  margin-bottom: 1.75rem !important;
+}
+
+.row.g-3 {
+  --bs-gutter-x: 1.25rem !important;
+  --bs-gutter-y: 1.25rem !important;
+}
+
+.row.g-4 {
+  --bs-gutter-x: 1.5rem !important;
+  --bs-gutter-y: 1.5rem !important;
+}
+
+/* POS Counter Special Styling */
+.pos-product-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 14px !important;
+  padding: 14px !important;
+  transition: all 0.15s ease-in-out !important;
+  cursor: pointer;
+}
+
+.pos-product-card:hover {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 6px 14px rgba(59, 130, 246, 0.1) !important;
+  transform: translateY(-2px);
+}
+
+.pos-cart-panel {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05) !important;
+  padding: 1.25rem !important;
+}
+
+/* Pagination */
+.pagination {
+  margin-bottom: 0;
+  gap: 4px;
+}
+
+.pagination .page-item .page-link {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #334155 !important;
+  border-radius: 6px !important;
+  padding: 6px 12px !important;
+  font-size: 13.5px !important;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #2563eb !important;
+  border-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+/* Hide theme switcher toggle element completely */
+.theme-switcher-wrapper,
+#theme-switcher {
+  display: none !important;
+}
