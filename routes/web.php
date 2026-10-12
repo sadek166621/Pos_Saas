@@ -71,6 +71,8 @@ Route::middleware(['auth', 'super_admin'])->prefix('admin')->name('admin.')->gro
     Route::get('/plans', [SuperAdminController::class, 'plans'])->name('plans');
     Route::put('/plans/{id}', [SuperAdminController::class, 'updatePlan'])->name('plans.update');
     Route::get('/transactions', [SuperAdminController::class, 'transactions'])->name('transactions');
+    Route::get('/tenants/{id}/impersonate', [SuperAdminController::class, 'impersonateTenant'])->name('tenants.impersonate');
+    Route::get('/exit-preview', [SuperAdminController::class, 'exitImpersonation'])->name('exit-preview');
 });
 
 /*

@@ -117,4 +117,18 @@ class SuperAdminController extends Controller
         $transactions = PaymentTransaction::with('tenant')->latest('id')->paginate(20);
         return view('admin.transactions', compact('transactions'));
     }
+
+    public function impersonateTenant(int $id): RedirectResponse
+    {
+        $tenant = Tenant::findOrFail($id);
+        session(['admin_preview_tenant_id' => $tenant->id]);
+        session()->forget('active_branch_id'); // Let it default to main branch of tenant
+        return redirect()->route('dashboard')->with('success', "আপনি বর্তমানে '{$tenant->name}' এর স্টোরে সুপার অ্যাডমিন মোডে আছেন।");
+    }
+
+    public function exitImpersonation(): RedirectResponse
+    {
+        session()->forget(['admin_preview_tenant_id', 'active_branch_id']);
+        return redirect()->route('admin.dashboard')->with('info', 'সুপার অ্যাডমিন প্যানেলে ফিরে এসেছেন।');
+    }
 }

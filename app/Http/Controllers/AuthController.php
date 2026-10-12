@@ -23,10 +23,16 @@ class AuthController extends Controller
 
     public function login(Request $request): RedirectResponse
     {
+        $request->merge([
+            'email' => strtolower(trim($request->input('email', ''))),
+            'password' => trim($request->input('password', '')),
+        ]);
+
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
+
 
         $remember = $request->boolean('remember');
 
@@ -40,7 +46,11 @@ class AuthController extends Controller
             }
 
             if ($user->isSuperAdmin()) {
-                return redirect()->intended(route('admin.dashboard'));
+                $intended = session()->get('url.intended');
+                if ($intended && str_contains($intended, '/admin')) {
+                    return redirect()->intended(route('admin.dashboard'));
+                }
+                return redirect()->route('admin.dashboard');
             }
 
             if (!$user->tenant_id) {

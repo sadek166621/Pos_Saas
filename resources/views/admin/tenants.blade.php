@@ -77,14 +77,19 @@
               </td>
               <td class="small">{{ $t->created_at->format('d M, Y') }}</td>
               <td>
-                <form action="{{ route('admin.tenants.toggle', $t->id) }}" method="POST" onsubmit="return confirm('আপনি কি নিশ্চিত এই ব্যবসার স্ট্যাটাস পরিবর্তন করতে চান?');">
-                  @csrf
-                  @if($t->status === 'active')
-                    <button type="submit" class="btn btn-xs btn-outline-danger">সাসপেন্ড করুন</button>
-                  @else
-                    <button type="submit" class="btn btn-xs btn-outline-success">সক্রিয় করুন</button>
-                  @endif
-                </form>
+                <div class="d-flex align-items-center gap-1">
+                  <a href="{{ route('admin.tenants.impersonate', $t->id) }}" class="btn btn-xs btn-outline-primary" title="এই টেন্যান্টের POS ও ড্যাশবোর্ডে প্রবেশ করুন">
+                    স্টোর দেখুন
+                  </a>
+                  <form action="{{ route('admin.tenants.toggle', $t->id) }}" method="POST" onsubmit="return confirm('আপনি কি নিশ্চিত এই ব্যবসার স্ট্যাটাস পরিবর্তন করতে চান?');" class="d-inline">
+                    @csrf
+                    @if($t->status === 'active')
+                      <button type="submit" class="btn btn-xs btn-outline-danger">সাসপেন্ড</button>
+                    @else
+                      <button type="submit" class="btn btn-xs btn-outline-success">সক্রিয়</button>
+                    @endif
+                  </form>
+                </div>
               </td>
             </tr>
           @empty

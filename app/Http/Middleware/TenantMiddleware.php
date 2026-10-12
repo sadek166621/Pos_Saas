@@ -20,6 +20,37 @@ class TenantMiddleware
         }
 
         if ($user->isSuperAdmin()) {
+            // Check if super admin is previewing a tenant or fallback to first tenant
+            $previewTenantId = session('admin_preview_tenant_id') ?? $user->tenant_id;
+            $tenant = $previewTenantId ? \App\Models\Tenant::find($previewTenantId) : \App\Models\Tenant::first();
+
+            if (!$tenant) {
+                return redirect()->route('admin.dashboard')->with('error', 'কোনো রেজিস্টার্ড টেন্যান্ট পাওয়া যায়নি।');
+            }
+
+            // Share current tenant with the entire app
+            app()->instance('currentTenant', $tenant);
+            view()->share('currentTenant', $tenant);
+            view()->share('isSuperAdminPreview', true);
+
+            // Share active branch
+            $activeBranchId = session('active_branch_id');
+            $branch = null;
+            if ($activeBranchId && $activeBranchId !== 'all') {
+                $branch = $tenant->branches()->find($activeBranchId);
+            }
+            if (!$branch) {
+                $branch = $tenant->branches()->where('is_main', true)->first() ?? $tenant->branches()->first();
+            }
+
+            if ($branch) {
+                session(['active_branch_id' => $branch->id]);
+                app()->instance('activeBranch', $branch);
+                view()->share('activeBranch', $branch);
+            }
+
+            view()->share('allBranches', $tenant->branches()->where('status', 'active')->get());
+
             return $next($request);
         }
 
@@ -35,7 +66,7 @@ class TenantMiddleware
         $activeBranchId = session('active_branch_id');
         $branch = null;
 
-        if ($activeBranchId) {
+        if ($activeBranchId && $activeBranchId !== 'all') {
             $branch = $user->tenant->branches()->find($activeBranchId);
         }
 

@@ -10,11 +10,15 @@ class SubscriptionCheckMiddleware
 {
     public function handle(Request $request, Closure $next): Response
     {
-        $tenant = app('currentTenant');
-
-        if (!$tenant) {
+        if ($request->user()?->isSuperAdmin()) {
             return $next($request);
         }
+
+        if (!app()->bound('currentTenant')) {
+            return $next($request);
+        }
+
+        $tenant = app('currentTenant');
 
         // Check if tenant is suspended
         if ($tenant->status === 'suspended') {

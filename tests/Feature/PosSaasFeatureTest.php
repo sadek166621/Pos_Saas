@@ -138,4 +138,20 @@ class PosSaasFeatureTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('সুপার অ্যাডমিন অ্যানালিটিক্স');
     }
+
+    public function test_super_admin_can_access_business_dashboard_without_binding_error(): void
+    {
+        $superAdmin = User::where('is_super_admin', true)->first();
+        $response = $this->actingAs($superAdmin)->get('/dashboard');
+        $response->assertStatus(200);
+        $response->assertSee('সুপার অ্যাডমিন প্রিভিউ মোড');
+    }
+
+    public function test_super_admin_can_impersonate_tenant(): void
+    {
+        $superAdmin = User::where('is_super_admin', true)->first();
+        $response = $this->actingAs($superAdmin)->get("/admin/tenants/{$this->tenant->id}/impersonate");
+        $response->assertRedirect('/dashboard');
+        $this->assertEquals($this->tenant->id, session('admin_preview_tenant_id'));
+    }
 }

@@ -303,6 +303,18 @@
       <!-- PAGE CONTENT CONTAINER -->
       <div class="page-content">
 
+        @if(isset($isSuperAdminPreview) && $isSuperAdminPreview)
+          <div class="alert alert-primary border-primary d-flex justify-content-between align-items-center shadow-sm mb-4 py-2 px-3">
+            <div class="d-flex align-items-center gap-2">
+              <i data-lucide="shield" class="text-primary"></i>
+              <span><strong>সুপার অ্যাডমিন প্রিভিউ মোড:</strong> আপনি বর্তমানে <strong>{{ $currentTenant->name }}</strong>-এর স্টোর ড্যাশবোর্ডে আছেন।</span>
+            </div>
+            <a href="{{ route('admin.exit-preview') }}" class="btn btn-sm btn-primary px-3 fw-bold">
+              সুপার অ্যাডমিন প্যানেলে ফিরুন &rarr;
+            </a>
+          </div>
+        @endif
+
         <!-- Flash Notifications -->
         @if(session('success'))
           <div class="alert alert-success alert-dismissible fade show d-flex align-items-center gap-2" role="alert">
